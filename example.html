@@ -35,9 +35,23 @@
             padding: 0.5em 1em 0.5em 1em;
         }
 
-        input[type=button] {
-            font-size: 1.2em;
-            padding: 0.5em 1em 0.5em 1em;
+        .head_holder{
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            text-align:left;
+            padding:0.5em 1em 0.5em 1em;
+
+            background-color:#0F0F0F;
+            background-color:rgba(0,0,0,0.5);
+            color:#FFF;
+        }
+        .head_holder a{color:#FFF; text-decoration: none;}
+
+        .panel{
+            padding-left:0.5em;
+            padding-right:0.5em;
         }
 
         .pre_data {
@@ -46,17 +60,30 @@
             margin: 0 auto;
         }
 
-        .pre_data .layout_left {
+        .pre_data .pre_input {
             width: 100%;
         }
 
-        .pre_data .layout_left input {
+        .pre_data .pre_input input {
             width: 100%;
             display: block;
         }
 
-        .pre_data .layout_right {
+        .pre_data .input_button {
             width: 100%;
+            font-size: 1.2em;
+            padding: 0.5em 1em 0.5em 1em;
+            margin-top:1em;
+            margin-bottom:1em;
+            background-color:#FFF;
+            box-shadow:none;
+            border:1px solid #4aa3df;
+            color:#4aa3df;
+            font-weight:bold;
+        }
+
+        .pre_data .input_button:hover{
+            cursor:pointer;
         }
 
         textarea {
@@ -67,18 +94,19 @@
     </style>
 </head>
 <body>
+<div class="head_holder"><a href="https://github.com/hsol/JsQuery.js">< back to GitHub</a></div>
 <div class="panel">
     <h1>JsQuery Example</h1>
     <div class="pre_data">
-        <div class="layout_left">
+        <div class="pre_input">
             <input id="jsonObject" type="text" placeholder="JSON Object"
                    value='[{"head":1, "tail":3}, {"head":5, "tail":7}, {"head":9, "tail":11}]'>
             <input id="query" type="text" placeholder="Your query" value="head WHERE tail < 9">
         </div>
-        <input class="layout_right" type="button" onclick="jsQuery()" value="TEST">
+        <input class="input_button" type="button" onclick="jsQuery()" value="Press to test ▼">
     </div>
     <textarea id="result" placeholder="result" readonly></textarea>
-    <h2>Copyright 2016. <a href="https://github.com/hsol">hsol</a> all rights reserved.</h2>
+    <h2>Copyright 2016. <a href="https://github.com/hsol">HansolLim</a> all rights reserved.</h2>
 </div>
 <script>
     window.onload = function(event) {
