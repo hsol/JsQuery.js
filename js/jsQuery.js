@@ -98,7 +98,10 @@
                             // test WHERE condition
                             var condition = queryObject.condition.where;
                             for (var key in object[objectIdx]) {
-                                condition = condition.replace(key, "'" + object[objectIdx][key] + "'");
+                                if(typeof object[objectIdx][key] === "string")
+                                    condition = condition.replace(key, "'" + object[objectIdx][key] + "'");
+                                else
+                                    condition = condition.replace(key, object[objectIdx][key]);
                             }
 
                             for (var quoteIdx in quoteArray) {
