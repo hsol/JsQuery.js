@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jsQuery,js</title>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400' rel='stylesheet' type='text/css'>
+    <script src="./js/jsQuery.js"></script>
+    <style>
+        * {
+            font-size: 14pt;
+            font-family: 'Titillium Web', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size:3em;
+            color:#FFF;
+            margin-bottom:1rem;
+        }
+
+        h2 {
+            font-size:1em;
+            color:#FFF;
+        }
+
+        body {
+            background-size: cover;
+            background: url("./images/background.jpg") no-repeat;
+            text-align: center;
+        }
+
+        input[type=text] {
+            padding: 0.5em 1em 0.5em 1em;
+        }
+
+        input[type=button] {
+            font-size: 1.2em;
+            padding: 0.5em 1em 0.5em 1em;
+        }
+
+        .pre_data {
+            width: 100%;
+            max-width: 35em;
+            margin: 0 auto;
+        }
+
+        .pre_data .layout_left {
+            width: 100%;
+        }
+
+        .pre_data .layout_left input {
+            width: 100%;
+            display: block;
+        }
+
+        .pre_data .layout_right {
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 35em;
+            padding: 0.5em 1em 0.5em 1em;
+        }
+    </style>
+</head>
+<body>
+<div class="panel">
+    <h1>JsQuery Example</h1>
+    <div class="pre_data">
+        <div class="layout_left">
+            <input id="jsonObject" type="text" placeholder="JSON Object"
+                   value='[{"head":1, "tail":3}, {"head":5, "tail":7}, {"head":9, "tail":11}]'>
+            <input id="query" type="text" placeholder="Your query" value="head WHERE tail < 9">
+        </div>
+        <input class="layout_right" type="button" onclick="jsQuery()" value="TEST">
+    </div>
+    <textarea id="result" placeholder="result" readonly></textarea>
+    <h2>Copyright 2016. hsol all rights reserved.</h2>
+</div>
+<script>
+    window.onload = function(event) {
+        verticalCenter();
+    }
+    window.onresize = function(event) {
+        verticalCenter();
+    };
+
+    function verticalCenter(){
+        document.getElementsByClassName("panel")[0].style.marginTop = (window.innerHeight - document.getElementsByClassName("panel")[0].clientHeight)/2 + "px";
+    }
+
+    function jsQuery() {
+        var jsonObject = JSON.parse(document.getElementById("jsonObject").value);
+        var query = document.getElementById("query").value;
+        var result = document.getElementById("result");
+
+        var jsq = new JsQuery(jsonObject, query);
+        result.value = JSON.stringify(jsq.getResult());
+    }
+</script>
+</body>
+</html>
