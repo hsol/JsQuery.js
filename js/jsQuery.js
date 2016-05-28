@@ -67,6 +67,34 @@
                     queryObject.columns = query.replace(new RegExp(" ", "gi"), "").split(",");
                 }
 
+                if (isContainOrder) {
+                    if (queryObject.condition.order) {
+                        if (queryObject.condition.order[0] != "-") {
+                            var key = queryObject.condition.order;
+                            for (var i = 0; i < object.length; i++) {
+                                for (var j = i + 1; j < object.length; j++) {
+                                    if (object[i][key] > object[j][key]) {
+                                        var temp = object[i];
+                                        object[i] = object[j];
+                                        object[j] = temp;
+                                    }
+                                }
+                            }
+                        } else {
+                            var key = queryObject.condition.order.substring(1, queryObject.condition.order.length);
+                            for (var i = 0; i < object.length; i++) {
+                                for (var j = i + 1; j < object.length; j++) {
+                                    if (object[i][key] < object[j][key]) {
+                                        var temp = object[i];
+                                        object[i] = object[j];
+                                        object[j] = temp;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
                 if (isContainWhere) {
                     if (queryObject.condition.where) {
                         var quotes = false;
@@ -128,34 +156,6 @@
                     object = object.filter(function (value) {
                         return value
                     });
-                }
-
-                if (isContainOrder) {
-                    if (queryObject.condition.order) {
-                        if (queryObject.condition.order[0] != "-") {
-                            var key = queryObject.condition.order.substring(1, queryObject.condition.order.length);
-                            for (var i = 0; i < object.length; i++) {
-                                for (var j = i + 1; j < object.length; j++) {
-                                    if (object[i][key] > object[j][key]) {
-                                        var temp = object[i][key];
-                                        object[i][key] = object[j][key];
-                                        object[j][key] = temp;
-                                    }
-                                }
-                            }
-                        } else {
-                            var key = queryObject.condition.order;
-                            for (var i = 0; i < object.length; i++) {
-                                for (var j = i + 1; j < object.length; j++) {
-                                    if (object[i][key] < object[j][key]) {
-                                        var temp = object[i][key];
-                                        object[i][key] = object[j][key];
-                                        object[j][key] = temp;
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
                 return object;
             }else{
