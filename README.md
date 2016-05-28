@@ -3,8 +3,10 @@
 ==========
 JsQuery.js is javascript library what can filter your JSON Array.
 
-
 You can test this library at http://bit.ly/1NRzpBD 
+
+　
+
 
 JsQuery has two variable.
 
@@ -16,12 +18,16 @@ First is "**JSON Array**" want to filter and Second is "**Query**"
 
 {conditions} calculate based by javascript engine.
 
+　
+
+
 *setObject(object object)* set object,
 
 *setQuery(string query)* set query string
 
 and you can initialize like this too. "new JsQuery(object object, query string)"
 
+　
 
 *getObject()* returns object,
 
@@ -29,6 +35,7 @@ and you can initialize like this too. "new JsQuery(object object, query string)"
 
 and *getResult()* returns filtered object.
 
+　
 
 **WHERE**
 
@@ -41,6 +48,7 @@ column, defaults is Ascending.
 
 Descending to plus "-" front of column.
 
+　
 
 examples;
 
@@ -55,5 +63,6 @@ you may filtering table by this library  after DB filtered.
 
 Thanks you.
 
+　
 
 Copyright 2016. [HansolLim](https://github.com/hsol) all rights reserved.
