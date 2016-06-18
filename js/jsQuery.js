@@ -1,3 +1,7 @@
+/*
+ https://github.com/hsol/JsQuery.js
+ The MIT License (MIT) Copyright (c) 2016 HansolLim
+ */
 (function (root) {
     root.JsQuery = function (object, query) {
         var _jsQuery = this;
@@ -69,6 +73,7 @@
 
                 if (isContainOrder) {
                     if (queryObject.condition.order) {
+                        queryObject.condition.order = queryObject.condition.order.trim();
                         if (queryObject.condition.order[0] != "-") {
                             var key = queryObject.condition.order;
                             for (var i = 0; i < object.length; i++) {
