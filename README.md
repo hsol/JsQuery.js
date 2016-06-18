@@ -3,7 +3,7 @@
 ==========
 JsQuery.js is javascript library what can filter your JSON Array.
 
-You can test this library at http://bit.ly/1NRzpBD 
+You can test this library at http://hsol.github.io/JsQuery.js/
 
 　
 
